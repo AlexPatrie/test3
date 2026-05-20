@@ -24,3 +24,13 @@ imports:
     installed: true
     install_path: /Users/alexanderpatrie/vivarium/workspaces/test3/external/pbg-medyan
     package: pbg_medyan
+  pbg-yalla:
+    source: https://github.com/vivarium-collective/pbg-yalla.git
+    ref: main
+    mode: reference
+    path: external/pbg-yalla
+    description: Process-bigraph wrapper for a NumPy port of ya||a's pair-wise agent-based
+      morphogenesis simulator
+    installed: true
+    install_path: /Users/alexanderpatrie/vivarium/workspaces/test3/external/pbg-yalla
+    package: pbg_yalla

@@ -6,3 +6,11 @@
 	path = external/pbg-medyan
 	url = https://github.com/vivarium-collective/pbg-medyan.git
 	branch = main
+[submodule "external/pbg-mem3dg"]
+	path = external/pbg-mem3dg
+	url = https://github.com/vivarium-collective/pbg-mem3dg.git
+	branch = main
+[submodule "external/pbg-yalla"]
+	path = external/pbg-yalla
+	url = https://github.com/vivarium-collective/pbg-yalla.git
+	branch = main
