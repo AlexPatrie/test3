@@ -1,34 +1,26 @@
 schema_version: 2
 name: test3
-created: "2026-05-20"
+created: '2026-05-20'
 plugin_version: 0.4.16
 package_path: pbg_test3
-
-# The four arrays below start empty; the dashboard populates them as you
-# work. Hand-editing is fine for small adds, but the dashboard's writers
-# also keep cross-references (studies, runs, viz wiring) consistent.
-
-# Observable specs: name + store_path + index_by. Populated by the Studies
-# tab when you declare a behavior_test or readout. See .pbg/schemas/study.schema.json
-# (readouts section) for shape.
 observables: []
-
-# Visualization wiring (address + config). Populated by the Visualizations
-# tab and /pbg-viz. See docs/conventions/visualizations.md.
 visualizations: []
-
-# Reproducible simulation specs (composite + steps + params). Populated by
-# the Composites tab "Run" button and by `/pbg-study run-baseline`.
 simulations: []
-
-# Workspace-scoped datasets (file path + format + provenance). Populated by
-# the Inputs tab "Attach dataset" action.
 datasets: []
-
 references_bib: references/papers.bib
 server:
   enabled: false
-
 compute_backend: hpc:ccam
-
 github_org: AlexPatrie
+imports:
+  pbg-medyan:
+    source: https://github.com/vivarium-collective/pbg-medyan.git
+    ref: main
+    mode: reference
+    path: external/pbg-medyan
+    description: 'Process-bigraph wrapper for the MEDYAN cytoskeleton simulator: pure-Python
+      re-implementation + a subprocess-driven bridge to the real MEDYAN C++ binary
+      (with checkpoint-restart and HDF5 vesicle support).'
+    installed: true
+    install_path: /Users/alexanderpatrie/vivarium/workspaces/test3/external/pbg-medyan
+    package: pbg_medyan

@@ -1,0 +1,8 @@
+[submodule "external/pbg-cellpack"]
+	path = external/pbg-cellpack
+	url = https://github.com/vivarium-collective/pbg-cellpack.git
+	branch = main
+[submodule "external/pbg-medyan"]
+	path = external/pbg-medyan
+	url = https://github.com/vivarium-collective/pbg-medyan.git
+	branch = main
