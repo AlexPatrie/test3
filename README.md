@@ -1,0 +1,48 @@
+# test3
+
+A Process-Bigraph research workspace scaffolded from
+[pbg-template](https://github.com/vivarium-collective/pbg-template).
+
+## Getting started
+
+    bash scripts/serve.sh           # open the dashboard
+    python3 scripts/lint-workspace.py
+
+See `NEXT_STEPS.md` for the full tour.
+
+## Working with this workspace
+
+The [pbg-superpowers](https://github.com/vivarium-collective/pbg-superpowers)
+Claude Code plugin provides skills that drive the canonical PR flow:
+
+- `/pbg-study <slug>` — start a study (8-section spec, `phase: Design|Build|Simulate|Evaluate|Decide`).
+- `/pbg-investigation <slug>` — group related studies into an investigation (DAG via `pipeline_gate.prerequisites`).
+- `/pbg-expert <tool>` — wrap a simulator as a process-bigraph Process or Step (sibling repo + tests + report). Pass `--lightweight` to write in-workspace instead.
+- `/pbg-expert <name> <tools…>` — wire wrapped simulators into a composite (sibling repo, or `--lightweight` for in-workspace).
+- `/pbg-viz` — generate a Visualization from a natural-language description.
+- `/pbg-report` — regenerate `reports/index.html`.
+
+Decide-phase studies can record `followup_proposals[]`; seed a child study
+from any proposal with `/pbg-study seed-from-followup <parent>/<proposal_id>`.
+
+## Layout
+
+- `workspace.yaml` — canonical state (validated against `.pbg/schemas/workspace.schema.json`).
+- `pbg_test3/` — your Python package (`core.py` exposes `build_core()`).
+- `studies/`, `composites/`, `references/`, `datasets/` — research artifacts.
+- `notes/` — friction logs, walkthroughs, agent transcripts, ADRs. See `notes/README.md` for the
+  cleanup rule: **files under `notes/` survive cleanup sweeps by default**, because they're the
+  input to the next round of infrastructure improvements.
+- `.pbg/schemas/` — JSON schemas the lint + dashboard validate against.
+- `scripts/` — `lint-workspace.py`, `serve.sh`, helpers.
+
+## Cleanup conventions
+
+Cleanup PRs (`chore(cleanup): …`, `chore(repo): trim …`) routinely remove generated files,
+one-shot scripts, and stale planning docs. Two locations are off-limits to bulk cleanup:
+
+- `notes/**` — see the rule in `notes/README.md`.
+- `references/notes/**` — per-paper literature notes, used by the findings protocol.
+
+If a specific file in either location is genuinely obsolete, delete it in its own commit
+with a one-line justification per file. Don't bundle with unrelated cleanup.
